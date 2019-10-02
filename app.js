@@ -4,6 +4,7 @@ import { compareNumbers } from './compareNumbers.js';
 // Declare global variables
 const targetNumber = getRandomInt(1, 21);
 const myButton = document.getElementById('guess-button');
+const responseMessage = document.getElementById('response');
 let remainingGuesses = 4;
 
 /*
@@ -30,23 +31,49 @@ myButton.addEventListener('click', () => {
     case -1:
         guessLow();
         remainingGuesses--;
+        displayRemaining();
         if (remainingGuesses === 0)
-            gameOver();
+            gameOver(0);
 
         break;
     case 0:
-        guessRight();
+        gameOver(1);
         break;
     case 1:
         guessHigh();
         remainingGuesses--;
+        displayRemaining();
         if (remainingGuesses === 0)
-            gameOver();
+            gameOver(0);
         break;
     }
-
-    
-
 });
 
-// define guessLow, guessHigh, guessRight, gameOver
+// guessLow display function
+function guessLow() {
+    responseMessage.textContent = 'That was too low! ';
+}
+
+// guessHigh display function
+function guessHigh() {
+    responseMessage.textContent = 'That was too high! ';
+}
+
+// gameOver display function for win + lose cases, 1 is win, is 0 lose
+function gameOver(ending) {
+    disableGameplay();
+    if (!ending)
+        responseMessage.textContent = 'Nice try ya garbanzon bean! The correct number was ' + targetNumber + '. Game over!';
+    else
+        responseMessage.textContent = 'You got it right! The correct number was ' + targetNumber + '. Congratulations! Game over.';
+}
+
+// Update remaining guesses display
+function displayRemaining() {
+    responseMessage.textContent += 'You have ' + remainingGuesses + 'guesses remaining.';
+}
+
+// Disable gameplay function
+function disableGameplay () {
+    deactivate button;
+}
