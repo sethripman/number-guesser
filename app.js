@@ -28,24 +28,24 @@ myButton.addEventListener('click', () => {
     let result = compareNumbers(sanitizedGuess, targetNumber);
 
     switch (result) {
-    case -1:
-        guessLow();
-        remainingGuesses--;
-        displayRemaining();
-        if (remainingGuesses === 0)
-            gameOver(0);
+        case -1:
+            guessLow();
+            remainingGuesses--;
+            displayRemaining();
+            if (remainingGuesses === 0)
+                gameOver(0);
 
-        break;
-    case 0:
-        gameOver(1);
-        break;
-    case 1:
-        guessHigh();
-        remainingGuesses--;
-        displayRemaining();
-        if (remainingGuesses === 0)
-            gameOver(0);
-        break;
+            break;
+        case 0:
+            gameOver(1);
+            break;
+        case 1:
+            guessHigh();
+            remainingGuesses--;
+            displayRemaining();
+            if (remainingGuesses === 0)
+                gameOver(0);
+            break;
     }
 });
 
@@ -70,10 +70,10 @@ function gameOver(ending) {
 
 // Update remaining guesses display
 function displayRemaining() {
-    responseMessage.textContent += 'You have ' + remainingGuesses + 'guesses remaining.';
+    responseMessage.textContent += 'You have ' + remainingGuesses + ' guesses remaining.';
 }
 
 // Disable gameplay function
-function disableGameplay () {
-    deactivate button;
+function disableGameplay() {
+    myButton.classList.add('hidden');
 }
