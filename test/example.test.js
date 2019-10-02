@@ -42,3 +42,29 @@ test('should return 1 if guess is higher than correctNumber', function(assert) {
     // Make assertions about what is expected valid result
     assert.equal(guessHigher, 1);
 });
+
+test('should catch error if guess is NaN', function(assert) {
+    //Arrange
+    // Set up your parameters and expectations
+    const guess = NaN;
+    const correctNumber = 9;
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const guessHigher = compareNumbers(guess, correctNumber);
+    //Assert
+    // Make assertions about what is expected valid result
+    assert.equal(guessHigher, 1);
+});
+
+test('should catch error if correctNumber is NaN', function(assert) {
+    //Arrange
+    // Set up your parameters and expectations
+    const guess = 18;
+    const correctNumber = NaN;
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const guessHigher = compareNumbers(guess, correctNumber);
+    //Assert
+    // Make assertions about what is expected valid result
+    assert.equal(guessHigher, 1);
+});
