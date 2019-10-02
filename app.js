@@ -18,7 +18,7 @@ output is response
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min)) + min;
 }
 
 // Guess button Event Listener
@@ -27,6 +27,10 @@ myButton.addEventListener('click', () => {
     const sanitizedGuess = parseInt(currentGuess, 10);
     let result = compareNumbers(sanitizedGuess, targetNumber);
 
+    // clears input field on click for clean visuals
+    document.getElementById('guess-field').value = '';
+
+    // branching display based on result
     switch (result) {
         case -1:
             guessLow();
@@ -62,10 +66,14 @@ function guessHigh() {
 // gameOver display function for win + lose cases, 1 is win, is 0 lose
 function gameOver(ending) {
     disableGameplay();
-    if (!ending)
+    if (!ending) 
         responseMessage.textContent = 'Nice try ya garbanzon bean! The correct number was ' + targetNumber + '. Game over!';
-    else
+    else {
         responseMessage.textContent = 'You got it right! The correct number was ' + targetNumber + '. Congratulations! Game over.';
+        const victoryImage = document.getElementById('thumbs-up');
+        victoryImage.classList.remove('hidden');
+        victoryImage.classList.add('instructions');
+    }
 }
 
 // Update remaining guesses display
