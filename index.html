@@ -5,13 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Random Number Guessing Game</title>
 </head>
 
 <body>
+    <h1>
+        <p class="title">Welcome to the Random Number Guessing Game!</p>
+    </h1>
+    
+    <p class="instructions">A random whole number between 1 and 20 has been generated and hidden. You have four guesses to find that number. You will be told whether your guess was too high, too low, or bang on the money. After four guesses, win or lose, the game ends.</p>
 
-    <script src="app.js"></script>
+    <p>
+        <input id="guess-field">
+    </p>
+    <p>
+        <button id="guess-button">Guess!</button>
+    </p>
+
+    <p>
+        <span id="response" class="instructions">You have 4 guesses remaining.</span>
+    </p>
+
+    <div class="hidden" id="thumbs-up">
+        <img src="https://66.media.tumblr.com/60a8c43713bcf37238cb6f10beb0b69a/tumblr_oqrugxEfeP1w924ygo1_500.gifv">
+    </div>
+
+    <script src="app.js" type="module"></script>
 </body>
 
 </html>
