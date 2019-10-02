@@ -6,12 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Random Number Guessing Game</title>
 </head>
 
 <body>
+    <h1>Welcome to the Random Number Guessing Game!</h1>
+    
+    <p>A random whole number between 1 and 20 has been generated and hidden. You have four guesses to find that number. You will be told whether your guess was too high, too low, or <strong>bang</strong> on the money. After four guesses, win or lose, the game ends.</p>
 
-    <script src="app.js"></script>
+    <p>
+        <input id="guess-field">
+    </p>
+    <p>
+        <button id="guess-button">Guess!</button>
+    </p>
+
+    <p>You have <span id="remaining">4</span> guesses remaining.</p>
+    <div class="hidden">That guess was <span id="high-or-low"></span></div>
+    
+    <div class="hidden">
+        You got it right! The correct number was BLAH. And it only took 4-GUESSESLEFT guesses! Game over.
+    </div>
+    <div class="hidden">
+        Nice try ya garbanzo bean! The correct number was BLAH. Game over!
+    </div>
+
+    <script src="app.js" type="module"></script>
 </body>
 
 </html>
